@@ -1,4 +1,4 @@
-# Jet Project
+# Jets Project
 
 ### Description
 
@@ -21,6 +21,8 @@ The menu consists of:
 ```
 
 ### UML
+
+![UMLJets](https://user-images.githubusercontent.com/1522180/156845982-7a240f88-9041-4861-9996-217c00ecc60e.png)
 
 - TBD
 
