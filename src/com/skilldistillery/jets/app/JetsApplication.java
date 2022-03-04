@@ -73,12 +73,10 @@ public class JetsApplication {
 			case "9":
 				System.out.println("\n9. Quit\nQuitting program...\n");
 				System.exit(0);
-			case "HELP":
-				app.greet();
-				app.getSelection(sc);
+			case "help":
 				break;
 			default:
-				System.out.println("Please make a valid selection.");
+				System.out.println("\nPlease make a valid selection.\n");
 			}
 			app.greet();
 			selection = app.getSelection(sc);
@@ -121,7 +119,7 @@ public class JetsApplication {
 		}
 		catch(Exception e) {
 			System.out.println("Please make a valid selection.");
-			return "HELP";
+			return "help";
 		}
 		
 		return selection;
