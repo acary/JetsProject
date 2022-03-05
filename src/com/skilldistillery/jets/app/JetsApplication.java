@@ -20,7 +20,7 @@ public class JetsApplication {
 		JetsApplication app = new JetsApplication();
 		List<Jet> jets = new ArrayList<>();
 		jets = app.readFromFile("jets.txt");
-		// System.out.println(jets); 
+		// System.out.println(jets);
 
 		// Populate airfield
 		System.out.println("\nPopulating airfield...READY!\n");
@@ -54,19 +54,27 @@ public class JetsApplication {
 				System.out.println();
 				System.out.println("\n3. View fastest jet:\n");
 				Jet fastestJet = airCommand.get(0);
-				
+
 				for (int i = 1; i <= airCommand.size() - 1; i++) {
 					if (airCommand.get(i).getSpeedMph() > fastestJet.getSpeedMph()) {
 						fastestJet = airCommand.get(i);
 					}
 				}
-				
+
 				System.out.println(fastestJet);
 				System.out.println();
 				break;
 			case "4":
 				System.out.println("\n4. View jet with longest range:\n");
-				System.out.println("* TBD");
+				Jet farthestJet = airCommand.get(0);
+
+				for (int i = 1; i <= airCommand.size() - 1; i++) {
+					if (airCommand.get(i).getRange() > farthestJet.getRange()) {
+						fastestJet = airCommand.get(i);
+					}
+				}
+
+				System.out.println(farthestJet);
 				System.out.println();
 				break;
 			case "5":
