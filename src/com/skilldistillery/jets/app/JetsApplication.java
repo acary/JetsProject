@@ -96,7 +96,35 @@ public class JetsApplication {
 				break;
 			case "8":
 				System.out.println("\n8. Remove a jet from Fleet\n");
-				System.out.println("* TBD");
+				
+				System.out.println("Available jets:\n");
+				
+				for (int i = 0; i < airCommand.size(); i++) {
+					System.out.println(i + ": " + airCommand.get(i));
+				}
+				
+				int toRemove;
+				
+				System.out.println("\nWhich jet to remove?\n");
+				try {
+					toRemove = sc.nextInt();	
+				}
+				catch (Exception e) {
+					System.out.println("\nUh oh, something happened.\n");
+					System.out.println("\nWhich jet to remove?\n");
+					toRemove = sc.nextInt();
+				}
+				
+				try {
+					airCommand.remove(toRemove);
+					for (Jet jet : airCommand) {
+						System.out.println(jet);
+					}
+				}
+				catch(Exception e) {
+					System.out.println("Hmmm, please try again.");
+				}
+				
 				System.out.println();
 				break;
 			case "9":

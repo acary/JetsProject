@@ -21,7 +21,7 @@ public class JetImpl extends Jet {
 	public String toString() {
 		String output;
 		// output = model + " " + speedMph + " " + range + " " + price;
-		output = "" + "Jet model: " + this.model;
+		output = this.model;
 		output += " " + "with top speed: " + this.speedMph;
 		output += " " + " and range: " + this.range;
 		output += " " + " at price: " + this.price;
