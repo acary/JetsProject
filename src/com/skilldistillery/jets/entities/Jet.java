@@ -1,52 +1,33 @@
 package com.skilldistillery.jets.entities;
 
 public abstract class Jet {
-	private String model;
-	private int speedMph;
-	private long range;
-	private double price;
+	String model;
+	int speedMph;
+	long range;
+	double price;
 	
 	public Jet() {
 	}
 	
-	public Jet(String model, int speedMph, long range, double price) {
-		this.model = model;
-		this.speedMph = speedMph;
-		this.range = range;
-		this.price = price;
-	}
+	public String getModel;
 
-	public String getModel() {
-		return model;
-	}
+	public double setModel;
 
-	public void setModel(String model) {
-		this.model = model;
-	}
+	public int getSpeedMph;
 
-	public int getSpeedMph() {
-		return speedMph;
-	}
+	public int setSpeedMph;
 
-	public void setSpeedMph(int speedMph) {
-		this.speedMph = speedMph;
-	}
+	public long getRange;
 
-	public long getRange() {
-		return range;
-	}
+	public long setRange;
 
-	public void setRange(long range) {
-		this.range = range;
-	}
+	public double getPrice;
 
-	public double getPrice() {
-		return price;
-	}
-
-	public void setPrice(double price) {
-		this.price = price;
-	}
+	public double setPrice;
 	
 	public abstract String toString();
+
+	public abstract String getModel();
+	
+	public abstract long getRange();
 }

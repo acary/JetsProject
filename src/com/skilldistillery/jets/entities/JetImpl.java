@@ -28,4 +28,14 @@ public class JetImpl extends Jet {
 		return output;
 	}
 
+	@Override
+	public long getRange() {
+		return range;
+	}
+
+	@Override
+	public String getModel() {
+		return model;
+	}
+
 }

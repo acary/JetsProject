@@ -20,7 +20,7 @@ public class JetsApplication {
 		JetsApplication app = new JetsApplication();
 		List<Jet> jets = new ArrayList<>();
 		jets = app.readFromFile("jets.txt");
-		System.out.println(jets); // 
+		// System.out.println(jets); 
 
 		// Populate airfield
 		System.out.println("\nPopulating airfield...READY!\n");
@@ -36,8 +36,7 @@ public class JetsApplication {
 			switch (selection) {
 			case "1":
 				System.out.println();
-				System.out.println("\n1. List fleet:");
-
+				System.out.println("\n1. List fleet:\n");
 				for (Jet jet : airCommand) {
 					System.out.println(jet);
 				}
@@ -45,8 +44,10 @@ public class JetsApplication {
 				System.out.println();
 				break;
 			case "2":
-				System.out.println("\n2. Fly all jets");
-				System.out.println("* TBD");
+				System.out.println("\n2. Fly all jets\n");
+				for (Jet jet : airCommand) {
+					System.out.println(jet.getModel() + " is flying at " + jet.getRange() + "!");
+				}
 				System.out.println();
 				break;
 			case "3":
@@ -96,7 +97,7 @@ public class JetsApplication {
 	}
 
 	public List<Jet> readFromFile(String fn) {
-		System.out.println("Creating jets...\n");
+		System.out.println("Creating jets...DONE!");
 		List<Jet> jets = new ArrayList<>();
 		try (BufferedReader bufIn = new BufferedReader(new FileReader(fn))) {
 			String line;
