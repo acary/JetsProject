@@ -30,4 +30,6 @@ public abstract class Jet {
 	public abstract String getModel();
 	
 	public abstract long getRange();
+
+	public abstract int getSpeedMph();
 }

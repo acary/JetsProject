@@ -44,42 +44,50 @@ public class JetsApplication {
 				System.out.println();
 				break;
 			case "2":
-				System.out.println("\n2. Fly all jets\n");
+				System.out.println("\n2. Fly all jets:\n");
 				for (Jet jet : airCommand) {
-					System.out.println(jet.getModel() + " is flying at " + jet.getRange() + "!");
+					System.out.println(jet.getModel() + " is flying at " + jet.getRange() + " MPH!");
 				}
 				System.out.println();
 				break;
 			case "3":
 				System.out.println();
-				System.out.println("\n3. View fastest jet:");
-				System.out.println("* TBD");
+				System.out.println("\n3. View fastest jet:\n");
+				Jet fastestJet = airCommand.get(0);
+				
+				for (int i = 1; i <= airCommand.size() - 1; i++) {
+					if (airCommand.get(i).getSpeedMph() > fastestJet.getSpeedMph()) {
+						fastestJet = airCommand.get(i);
+					}
+				}
+				
+				System.out.println(fastestJet);
 				System.out.println();
 				break;
 			case "4":
-				System.out.println("\n4. View jet with longest range");
+				System.out.println("\n4. View jet with longest range:\n");
 				System.out.println("* TBD");
 				System.out.println();
 				break;
 			case "5":
 				System.out.println();
-				System.out.println("\n5. Load all Cargo Jets:");
+				System.out.println("\n5. Load all Cargo Jets:\n");
 				System.out.println("* TBD");
 				System.out.println();
 				break;
 			case "6":
-				System.out.println("\n6. Dogfight!");
+				System.out.println("\n6. Dogfight!\n");
 				System.out.println("* TBD");
 				System.out.println();
 				break;
 			case "7":
 				System.out.println();
-				System.out.println("\n7. Add a jet to Fleet:");
+				System.out.println("\n7. Add a jet to Fleet:\n");
 				System.out.println("* TBD");
 				System.out.println();
 				break;
 			case "8":
-				System.out.println("\n8. Remove a jet from Fleet");
+				System.out.println("\n8. Remove a jet from Fleet\n");
 				System.out.println("* TBD");
 				System.out.println();
 				break;

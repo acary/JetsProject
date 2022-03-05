@@ -38,4 +38,9 @@ public class JetImpl extends Jet {
 		return model;
 	}
 
+	@Override
+	public int getSpeedMph() {
+		return speedMph;
+	}
+
 }
