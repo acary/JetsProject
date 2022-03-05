@@ -50,4 +50,8 @@ public class CargoCarrier extends Cargo {
 		System.out.println(output + model);
 	}
 
+	@Override
+	public void fight() {
+	}
+
 }

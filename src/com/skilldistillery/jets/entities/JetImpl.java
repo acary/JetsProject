@@ -43,4 +43,9 @@ public class JetImpl extends Jet {
 		return speedMph;
 	}
 
+	@Override
+	public void fight() {
+		System.out.println("Fighting! - " + model);
+	}
+
 }

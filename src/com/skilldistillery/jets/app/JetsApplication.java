@@ -98,8 +98,7 @@ public class JetsApplication {
 				System.out.println();
 				break;
 			case "5":
-				System.out.println();
-				System.out.println("5. Load all Cargo Jets:\n");
+				System.out.println("\n5. Load all Cargo Jets:\n");
 				for (Jet cargoCarrier : airCommand) {
 					if (cargoCarrier instanceof CargoCarrier) {
 						((CargoCarrier) cargoCarrier).loadCargo();
@@ -109,7 +108,11 @@ public class JetsApplication {
 				break;
 			case "6":
 				System.out.println("\n6. Dogfight!\n");
-				System.out.println("* TBD");
+				for (Jet jet : airCommand) {
+					if (jet instanceof JetImpl) {
+						jet.fight();
+					}
+				}
 				System.out.println();
 				break;
 			case "7":
