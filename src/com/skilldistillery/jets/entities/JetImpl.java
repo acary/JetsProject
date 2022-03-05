@@ -23,8 +23,8 @@ public class JetImpl extends Jet {
 		// output = model + " " + speedMph + " " + range + " " + price;
 		output = this.model;
 		output += " " + "with top speed: " + this.speedMph;
-		output += " " + " and range: " + this.range;
-		output += " " + " at price: " + this.price;
+		output += " " + "and range: " + this.range;
+		output += " " + "at price: " + this.price;
 		return output;
 	}
 

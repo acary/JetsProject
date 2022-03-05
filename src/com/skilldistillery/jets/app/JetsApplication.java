@@ -14,7 +14,7 @@ public class JetsApplication {
 
 	public static void main(String[] args) {
 
-		Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in).useDelimiter("\n");
 
 		// Create jets and populate airfield
 		JetsApplication app = new JetsApplication();
@@ -36,9 +36,9 @@ public class JetsApplication {
 			switch (selection) {
 			case "1":
 				System.out.println();
-				System.out.println("\n1. List fleet:\n");
+				System.out.println("1. List fleet:\n");
 				for (Jet jet : airCommand) {
-					System.out.println(jet);
+					System.out.println("* " + jet);
 				}
 
 				System.out.println();
@@ -46,13 +46,13 @@ public class JetsApplication {
 			case "2":
 				System.out.println("\n2. Fly all jets:\n");
 				for (Jet jet : airCommand) {
-					System.out.println(jet.getModel() + " is flying at " + jet.getRange() + " MPH!");
+					System.out.println("* " + jet.getModel() + " is flying at " + jet.getRange() + " MPH!");
 				}
 				System.out.println();
 				break;
 			case "3":
 				System.out.println();
-				System.out.println("\n3. View fastest jet:\n");
+				System.out.println("3. View fastest jet:\n");
 				
 				Jet fastestJet = null;
 				
@@ -71,7 +71,7 @@ public class JetsApplication {
 							fastestJet = airCommand.get(i);
 						}
 					}
-					System.out.println("Fastest jet: " + fastestJet.getModel() + " @ " + fastestJet.getSpeedMph() + " MPH");
+					System.out.println("* Fastest jet: " + fastestJet.getModel() + " @ " + fastestJet.getSpeedMph() + " MPH");
 				}
 
 				System.out.println();
@@ -96,13 +96,13 @@ public class JetsApplication {
 							farthestJet = airCommand.get(i);
 						}
 					}
-					System.out.println("Longest range jet: " + farthestJet.getModel() + " @ " + farthestJet.getRange() + " miles");
+					System.out.println("* Longest range jet: " + farthestJet.getModel() + " @ " + farthestJet.getRange() + " miles");
 				}
 				System.out.println();
 				break;
 			case "5":
 				System.out.println();
-				System.out.println("\n5. Load all Cargo Jets:\n");
+				System.out.println("5. Load all Cargo Jets:\n");
 				System.out.println("* TBD");
 				System.out.println();
 				break;
@@ -114,7 +114,49 @@ public class JetsApplication {
 			case "7":
 				System.out.println();
 				System.out.println("\n7. Add a jet to Fleet:\n");
-				System.out.println("* TBD");
+				
+				String name;
+				int speed;
+				long range;
+				double price;
+				System.out.println("Enter jet Model:");
+				try {
+					name = sc.next();
+				}
+				catch (Exception e) {
+					System.out.println("An error occurred.\n");
+					break;
+				}
+				System.out.println("Enter jet Speed:");
+				try {
+					speed = sc.nextInt();
+				}
+				catch (Exception e) {
+					System.out.println("An error occurred.\n");
+					break;
+				}
+				System.out.println("Enter jet Range:");
+				try {
+					range = sc.nextLong();
+				}
+				catch (Exception e) {
+					System.out.println("An error occurred.\n");
+					break;
+				}
+				System.out.println("Enter jet Price:");
+				try {
+					price = sc.nextDouble();
+				}
+				catch (Exception e) {
+					System.out.println("An error occurred.\n");
+					break;
+				}
+				System.out.println();
+				Jet newJet = new JetImpl(name, speed, range, price);
+				airCommand.add(newJet);
+				for (Jet jet : airCommand) {
+					System.out.println("* " + jet);
+				}
 				System.out.println();
 				break;
 			case "8":
@@ -141,7 +183,7 @@ public class JetsApplication {
 				try {
 					airCommand.remove(toRemove);
 					for (Jet jet : airCommand) {
-						System.out.println(jet);
+						System.out.println("* " + jet);
 					}
 				}
 				catch(Exception e) {
