@@ -53,28 +53,51 @@ public class JetsApplication {
 			case "3":
 				System.out.println();
 				System.out.println("\n3. View fastest jet:\n");
-				Jet fastestJet = airCommand.get(0);
-
-				for (int i = 1; i <= airCommand.size() - 1; i++) {
-					if (airCommand.get(i).getSpeedMph() > fastestJet.getSpeedMph()) {
-						fastestJet = airCommand.get(i);
+				
+				Jet fastestJet = null;
+				
+				try {
+					fastestJet = airCommand.get(0);
+				}
+				catch(Exception e) {
+					System.out.println("An error occurred.\n");
+					break;
+				}
+				
+				if (fastestJet != null) {
+					fastestJet = airCommand.get(0);
+					for (int i = 1; i < airCommand.size(); i++) {
+						if (airCommand.get(i).getSpeedMph() > fastestJet.getSpeedMph()) {
+							fastestJet = airCommand.get(i);
+						}
 					}
+					System.out.println("Fastest jet: " + fastestJet.getModel() + " @ " + fastestJet.getSpeedMph() + " MPH");
 				}
 
-				System.out.println(fastestJet);
 				System.out.println();
 				break;
 			case "4":
 				System.out.println("\n4. View jet with longest range:\n");
-				Jet farthestJet = airCommand.get(0);
-
-				for (int i = 1; i <= airCommand.size() - 1; i++) {
-					if (airCommand.get(i).getRange() > farthestJet.getRange()) {
-						fastestJet = airCommand.get(i);
-					}
+				
+				Jet farthestJet = null;
+				
+				try {
+					farthestJet = airCommand.get(0);
 				}
-
-				System.out.println(farthestJet);
+				catch(Exception e) {
+					System.out.println("An error occurred.\n");
+					break;
+				}
+				
+				if (airCommand != null) {
+					farthestJet = airCommand.get(0);
+					for (int i = 1; i < airCommand.size(); i++) {
+						if (airCommand.get(i).getRange() > farthestJet.getRange()) {
+							farthestJet = airCommand.get(i);
+						}
+					}
+					System.out.println("Longest range jet: " + farthestJet.getModel() + " @ " + farthestJet.getRange() + " miles");
+				}
 				System.out.println();
 				break;
 			case "5":
