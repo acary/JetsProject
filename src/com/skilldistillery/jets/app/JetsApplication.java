@@ -3,33 +3,45 @@ package com.skilldistillery.jets.app;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
+import com.skilldistillery.jets.entities.Jet;
+import com.skilldistillery.jets.entities.JetImpl;
 
 public class JetsApplication {
 
 	public static void main(String[] args) {
-		
+
 		Scanner sc = new Scanner(System.in);
-		
-		// Create jets and populate airfield 
+
+		// Create jets and populate airfield
 		JetsApplication app = new JetsApplication();
-		app.readFromFile("jets.txt");
-		
+		List<Jet> jets = new ArrayList<>();
+		jets = app.readFromFile("jets.txt");
+		System.out.println(jets); // 
+
 		// Populate airfield
 		System.out.println("\nPopulating airfield...READY!\n");
-		
+		List<Jet> airCommand = jets;
+
 		// Get command
 		System.out.println("**** GREETINGS, COMMANDER! ****\n");
 		app.greet();
 		String selection = app.getSelection(sc);
-		
+
 		// Interact for user input
-		while(true) {
-			switch(selection) {
+		while (true) {
+			switch (selection) {
 			case "1":
 				System.out.println();
 				System.out.println("\n1. List fleet:");
-				System.out.println("* TBD");
+
+				for (Jet jet : airCommand) {
+					System.out.println(jet);
+				}
+
 				System.out.println();
 				break;
 			case "2":
@@ -82,20 +94,39 @@ public class JetsApplication {
 			selection = app.getSelection(sc);
 		}
 	}
-	
-	public void readFromFile(String fn) {
+
+	public List<Jet> readFromFile(String fn) {
 		System.out.println("Creating jets...\n");
-	    try ( BufferedReader bufIn = new BufferedReader(new FileReader(fn)) ) {
-	        String line;
-	        while ((line = bufIn.readLine()) != null) {
-	          System.out.println("... " + line);
-	        }
-	      }
-	      catch (IOException e) {
-	        System.err.println(e);
-	      }
+		List<Jet> jets = new ArrayList<>();
+		try (BufferedReader bufIn = new BufferedReader(new FileReader(fn))) {
+			String line;
+			while ((line = bufIn.readLine()) != null) {
+				// System.out.println("... " + line);
+
+				String[] inputLine = line.split(",");
+
+				String name = inputLine[0];
+				// System.out.println(name);
+
+				int speed = Integer.parseInt(inputLine[1]);
+				// System.out.println(speed);
+
+				long range = Long.parseLong(inputLine[2]);
+				// System.out.println(range);
+
+				double price = Double.parseDouble(inputLine[3]);
+				// System.out.println(price);
+
+				Jet newJet = new JetImpl(name, speed, range, price);
+				// System.out.println(newJet);
+				jets.add(newJet);
+			}
+		} catch (IOException e) {
+			System.err.println(e);
+		}
+		return jets;
 	}
-	
+
 	public void greet() {
 		System.out.println("--\nWhat is your order?\n");
 		System.out.println("MENU:");
@@ -109,19 +140,18 @@ public class JetsApplication {
 		System.out.println("8. Remove a jet from Fleet");
 		System.out.println("9. Quit");
 	}
-	
+
 	public String getSelection(Scanner sc) {
-		
+
 		String selection = null;
-		
+
 		try {
 			selection = sc.next();
-		}
-		catch(Exception e) {
+		} catch (Exception e) {
 			System.out.println("Please make a valid selection.");
 			return "help";
 		}
-		
+
 		return selection;
 	}
 
