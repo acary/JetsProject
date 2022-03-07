@@ -51,6 +51,7 @@ public class JetsApplication {
 				switch (selection) {
 				case "1":
 					System.out.println();
+					System.out.println("***************************");
 					System.out.println("1. List fleet:\n");
 					for (Jet jet : airField.airCommand) {
 						System.out.println("* " + jet);
@@ -58,7 +59,9 @@ public class JetsApplication {
 					System.out.println();
 					break;
 				case "2":
-					System.out.println("\n2. Fly all jets:\n");
+					System.out.println();
+					System.out.println("***************************");
+					System.out.println("2. Fly all jets:\n");
 					for (Jet jet : airField.airCommand) {
 						jet.fly();
 					}
@@ -66,6 +69,7 @@ public class JetsApplication {
 					break;
 				case "3":
 					System.out.println();
+					System.out.println("***************************");
 					System.out.println("3. View fastest jet:\n");
 					Jet fastestJet = null;
 					try {
@@ -86,7 +90,9 @@ public class JetsApplication {
 					System.out.println();
 					break;
 				case "4":
-					System.out.println("\n4. View jet with longest range:\n");
+					System.out.println();
+					System.out.println("***************************");
+					System.out.println("4. View jet with longest range:\n");
 					Jet farthestJet = null;
 					try {
 						farthestJet = airField.airCommand.get(0);
@@ -106,11 +112,12 @@ public class JetsApplication {
 					System.out.println();
 					break;
 				case "5":
-					System.out.println("\n5. Set drone laser and frequency:\n");
+					System.out.println();
+					System.out.println("***************************");
+					System.out.println("5. Set drone laser and frequency:\n");
 					String color;
 					int freq;
 					
-					System.out.println("***************************");
 					System.out.println("Enter new laser color:");
 					try {
 						color = sc.next();
@@ -136,7 +143,9 @@ public class JetsApplication {
 					System.out.println();
 					break;
 				case "6":
-					System.out.println("\n6. Drone offensive!\n");
+					System.out.println();
+					System.out.println("***************************");
+					System.out.println("6. Drone offensive!\n");
 					for (Jet jet : airField.airCommand) {
 						if (jet instanceof Drone) {
 							jet.fight();
@@ -146,12 +155,12 @@ public class JetsApplication {
 					break;
 				case "7":
 					System.out.println();
+					System.out.println("***************************");
 					System.out.println("7. Add a jet to Fleet:\n");
 					String name;
 					int speed;
 					long range;
 					double price;
-					System.out.println("***************************");
 					System.out.println("Enter new jet model (name):");
 					try {
 						name = sc.next();
@@ -190,7 +199,9 @@ public class JetsApplication {
 					System.out.println();
 					break;
 				case "8":
-					System.out.println("\n8. Remove a jet from Fleet\n");
+					System.out.println();
+					System.out.println("***************************");
+					System.out.println("8. Remove a jet from Fleet\n");
 
 					System.out.println("Available jets:\n");
 
@@ -222,7 +233,9 @@ public class JetsApplication {
 					System.out.println();
 					break;
 				case "9":
-					System.out.println("\n9. Quit\nQuitting program...\n");
+					System.out.println();
+					System.out.println("***************************");
+					System.out.println("9. Quit\nQuitting program...\n");
 					System.exit(0);
 				case "help":
 					break;
