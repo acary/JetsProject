@@ -1,13 +1,13 @@
 package com.skilldistillery.jets.entities;
 
-public class Drone extends Jet implements Autonomous {
+public class Drone extends Jet implements Autonomous, Shielded {
 
 	private String model;
 	private int speedMph;
 	private long range;
 	private double price;
-	private String laser;
-	private int frequency;
+	private String laser = "green";
+	private int frequency = 7;
 
 	public Drone() {
 	}
@@ -57,7 +57,7 @@ public class Drone extends Jet implements Autonomous {
 
 	@Override
 	public void fight() {
-		System.out.println("* Fighting with " + getLaser() + "laser! - " + model);
+		System.out.println("* Fighting " + model + " with " + getLaser() + "laser " + "at " + this.frequency);
 	}
 
 	public void changeLaser(String color) {

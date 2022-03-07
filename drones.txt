@@ -1,2 +1,2 @@
-Autonomous Spaceship I (ACXYZ Defense Corporation),200,300,12000000
-Cloaked Worst Enemy (ACXYZ Defense Corporation),300,800,18000000
+Autonomous Spaceship I (ACXYZ Corp.),200,300,12000000
+Cloaked Worst Enemy (ACXYZ Corp.),300,800,18000000
