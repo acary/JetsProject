@@ -122,28 +122,28 @@ public class JetsApplication {
 					long range;
 					double price;
 					System.out.println("****************");
-					System.out.println("Enter jet Model:");
+					System.out.println("Enter jet Model (name):");
 					try {
 						name = sc.next();
 					} catch (Exception e) {
 						System.out.println("An error occurred.\n");
 						break;
 					}
-					System.out.println("Enter jet Speed:");
+					System.out.println("Enter jet Speed (MPH):");
 					try {
 						speed = sc.nextInt();
 					} catch (Exception e) {
 						System.out.println("An error occurred.\n");
 						break;
 					}
-					System.out.println("Enter jet Range:");
+					System.out.println("Enter jet Range (miles):");
 					try {
 						range = sc.nextLong();
 					} catch (Exception e) {
 						System.out.println("An error occurred.\n");
 						break;
 					}
-					System.out.println("Enter jet Price:");
+					System.out.println("Enter jet Price (USD):");
 					try {
 						price = sc.nextDouble();
 					} catch (Exception e) {

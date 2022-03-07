@@ -4,7 +4,13 @@
 
 This application creates a fleet of jets with different capabilities.
 
-It includes a menu to use the jets and access information about them.
+##### Running the program:
+```
+- Import project into Eclipse
+- Compile and run main in `JetsApplication.java`
+```
+
+The application includes a menu to use the jets and access information about them.
 
 The menu consists of:
 
@@ -24,11 +30,13 @@ The menu consists of:
 
 ![UMLJets](https://user-images.githubusercontent.com/1522180/156845982-7a240f88-9041-4861-9996-217c00ecc60e.png)
 
-- TBD
+- The above image shows a representative UML class diagram.
 
 ### Lessons Learned
 
-- TBD
+- The try-with-resources statement that initializes the Scanner ensures that each resource is closed at the end of the statement. A resource is an object that must be closed after the program is finished with it.
+- Searching through the Collection with an `enhanced for loop` with nested `if` statement that checks each element using `instanceof` helps identify appropriate items (i.e. belonging to a certain `Class`).
+- Abstract classes can be extended by other abstract classes (i.e. `Jet` and `Cargo`) which can be extended by concrete class implementations (i.e. `CargoCarrier`).
 
 ### Technologies Used
 
