@@ -50,7 +50,7 @@ public class JetsApplication {
 			case "2":
 				System.out.println("\n2. Fly all jets:\n");
 				for (Jet jet : airCommand) {
-					System.out.println("* " + jet.getModel() + " is flying at " + jet.getRange() + " MPH!");
+					jet.fly();
 				}
 				System.out.println();
 				break;
@@ -117,12 +117,12 @@ public class JetsApplication {
 				break;
 			case "7":
 				System.out.println();
-				System.out.println("\n7. Add a jet to Fleet:\n");
-
+				System.out.println("7. Add a jet to Fleet:\n");
 				String name;
 				int speed;
 				long range;
 				double price;
+				System.out.println("****************");
 				System.out.println("Enter jet Model:");
 				try {
 					name = sc.next();
@@ -181,6 +181,7 @@ public class JetsApplication {
 
 				try {
 					airCommand.remove(toRemove);
+					System.out.println("Removed.\n");
 					for (Jet jet : airCommand) {
 						System.out.println("* " + jet);
 					}

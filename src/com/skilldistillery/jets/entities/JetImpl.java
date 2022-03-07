@@ -1,15 +1,15 @@
 package com.skilldistillery.jets.entities;
 
 public class JetImpl extends Jet {
-	
+
 	private String model;
 	private int speedMph;
 	private long range;
 	private double price;
-	
+
 	public JetImpl() {
 	}
-	
+
 	public JetImpl(String model, int speedMph, long range, double price) {
 		this.model = model;
 		this.speedMph = speedMph;
@@ -20,7 +20,6 @@ public class JetImpl extends Jet {
 	@Override
 	public String toString() {
 		String output;
-		// output = model + " " + speedMph + " " + range + " " + price;
 		output = this.model;
 		output += " " + "with top speed: " + this.speedMph;
 		output += " " + "and range: " + this.range;
@@ -45,7 +44,17 @@ public class JetImpl extends Jet {
 
 	@Override
 	public void fight() {
-		System.out.println("Fighting! - " + model);
+		System.out.println("* Fighting! - " + model);
+	}
+
+	@Override
+	public void fly() {
+		String output;
+		output = "* " + this.model;
+		output += " is FLYING for " + this.range / this.speedMph + " hours";
+		output += " " + "(" + this.range;
+		output += " miles/" + this.speedMph + " MPH)";
+		System.out.println(output);
 	}
 
 }

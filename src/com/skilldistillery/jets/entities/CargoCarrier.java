@@ -1,15 +1,15 @@
 package com.skilldistillery.jets.entities;
 
 public class CargoCarrier extends Cargo {
-	
+
 	private String model;
 	private int speedMph;
 	private long range;
 	private double price;
-	
+
 	public CargoCarrier() {
 	}
-	
+
 	public CargoCarrier(String model, int speedMph, long range, double price) {
 		this.model = model;
 		this.speedMph = speedMph;
@@ -46,12 +46,22 @@ public class CargoCarrier extends Cargo {
 	@Override
 	public void loadCargo() {
 		String output = "";
-		output += "Loading cargo: ";
+		output += "* Loading cargo: ";
 		System.out.println(output + model);
 	}
 
 	@Override
 	public void fight() {
+	}
+
+	@Override
+	public void fly() {
+		String output;
+		output = "* " + this.model;
+		output += " is FLYING for " + this.range / this.speedMph + " hours";
+		output += " " + "(" + this.range;
+		output += " miles/" + this.speedMph + " MPH)";
+		System.out.println(output);
 	}
 
 }

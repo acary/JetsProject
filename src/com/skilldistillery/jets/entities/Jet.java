@@ -32,6 +32,8 @@ public abstract class Jet {
 	public abstract long getRange();
 
 	public abstract int getSpeedMph();
+	
+	public abstract void fly();
 
 	public abstract void fight();
 }
