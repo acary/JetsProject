@@ -57,7 +57,7 @@ public class Drone extends Jet implements Autonomous, Shielded {
 
 	@Override
 	public void fight() {
-		System.out.println("* Fighting " + model + " with " + getLaser() + "laser " + "at " + this.frequency);
+		System.out.println("* Fighting " + model + " with " + getLaser() + " laser " + "at frequency: " + this.frequency);
 	}
 
 	public void changeLaser(String color) {
