@@ -83,5 +83,10 @@ public class Drone extends Jet implements Autonomous, Shielded {
 	public void setFrequency(int frequency) {
 		this.frequency = frequency;
 	}
+	
+	public void setFreqAndLaser(String color, int freq) {
+		laser = color;
+		frequency = freq;
+	}
 
 }

@@ -106,12 +106,33 @@ public class JetsApplication {
 					System.out.println();
 					break;
 				case "5":
-					System.out.println("\n5. Load all Cargo Jets:\n");
-					for (Jet cargoCarrier : airField.airCommand) {
-						if (cargoCarrier instanceof CargoCarrier) {
-							((CargoCarrier) cargoCarrier).loadCargo();
+					System.out.println("\n5. Set drone laser and frequency:\n");
+					String color;
+					int freq;
+					
+					System.out.println("***************************");
+					System.out.println("Enter new laser color:");
+					try {
+						color = sc.next();
+					} catch (Exception e) {
+						System.out.println("An error occurred.\n");
+						break;
+					}
+					System.out.println("Enter new frequency integer:");
+					try {
+						freq = sc.nextInt();
+					} catch (Exception e) {
+						System.out.println("An error occurred.\n");
+						break;
+					}
+					
+					for (Jet drone : airField.airCommand) {
+						if (drone instanceof Drone) {
+							((Drone) drone).setFreqAndLaser(color, freq);
 						}
 					}
+
+					System.out.println("Lasers and frequency set to: " + color + ", " + freq);
 					System.out.println();
 					break;
 				case "6":
@@ -130,29 +151,29 @@ public class JetsApplication {
 					int speed;
 					long range;
 					double price;
-					System.out.println("****************");
-					System.out.println("Enter jet Model (name):");
+					System.out.println("***************************");
+					System.out.println("Enter new jet model (name):");
 					try {
 						name = sc.next();
 					} catch (Exception e) {
 						System.out.println("An error occurred.\n");
 						break;
 					}
-					System.out.println("Enter jet Speed (MPH):");
+					System.out.println("Enter new jet speed (MPH):");
 					try {
 						speed = sc.nextInt();
 					} catch (Exception e) {
 						System.out.println("An error occurred.\n");
 						break;
 					}
-					System.out.println("Enter jet Range (miles):");
+					System.out.println("Enter new jet range (miles):");
 					try {
 						range = sc.nextLong();
 					} catch (Exception e) {
 						System.out.println("An error occurred.\n");
 						break;
 					}
-					System.out.println("Enter jet Price (USD):");
+					System.out.println("Enter new jet price (USD):");
 					try {
 						price = sc.nextDouble();
 					} catch (Exception e) {
@@ -281,7 +302,7 @@ public class JetsApplication {
 		System.out.println("2. Fly all jets");
 		System.out.println("3. View fastest jet");
 		System.out.println("4. View jet with longest range");
-		System.out.println("5. Load all Cargo Jets");
+		System.out.println("5. Set drone laser and frequency");
 		System.out.println("6. Drone offensive!");
 		System.out.println("7. Add a jet to Fleet");
 		System.out.println("8. Remove a jet from Fleet");
