@@ -10,6 +10,7 @@ import java.util.Scanner;
 import com.skilldistillery.jets.entities.AirField;
 import com.skilldistillery.jets.entities.Cargo;
 import com.skilldistillery.jets.entities.CargoCarrier;
+import com.skilldistillery.jets.entities.Drone;
 import com.skilldistillery.jets.entities.Jet;
 import com.skilldistillery.jets.entities.JetImpl;
 
@@ -17,20 +18,28 @@ public class JetsApplication {
 
 	public static void main(String[] args) {
 		try (Scanner sc = new Scanner(System.in).useDelimiter("\n")) {
+
 			// Create aircraft and populate airfield
 			JetsApplication app = new JetsApplication();
+
 			// Jets
 			List<Jet> jets = new ArrayList<>();
 			jets = app.readJetFromFile("jets.txt");
+
 			// Cargo
 			List<Cargo> cargo = new ArrayList<>();
 			cargo = app.readCargoFromFile("cargo.txt");
+
+			// Drones
+			List<Drone> drones = new ArrayList<>();
+			drones = app.readDronesFromFile("drones.txt");
 
 			// Populate airfield
 			System.out.println("Populating airfield...READY!\n");
 			AirField airField = new AirField();
 			airField.airCommand.addAll(jets);
 			airField.airCommand.addAll(cargo);
+			airField.airCommand.addAll(drones);
 
 			// Get command
 			System.out.println("**** GREETINGS, COMMANDER! ****\n");
@@ -91,8 +100,8 @@ public class JetsApplication {
 								farthestJet = airField.airCommand.get(i);
 							}
 						}
-						System.out.println("* Longest range jet: " + farthestJet.getModel() + " @ " + farthestJet.getRange()
-								+ " miles");
+						System.out.println("* Longest range jet: " + farthestJet.getModel() + " @ "
+								+ farthestJet.getRange() + " miles");
 					}
 					System.out.println();
 					break;
@@ -243,6 +252,26 @@ public class JetsApplication {
 			System.err.println(e);
 		}
 		return cargo;
+	}
+	
+	public List<Drone> readDronesFromFile(String fn) {
+		System.out.println("Creating drones...DONE!");
+		List<Drone> drone = new ArrayList<>();
+		try (BufferedReader bufIn = new BufferedReader(new FileReader(fn))) {
+			String line;
+			while ((line = bufIn.readLine()) != null) {
+				String[] inputLine = line.split(",");
+				String name = inputLine[0];
+				int speed = Integer.parseInt(inputLine[1]);
+				long range = Long.parseLong(inputLine[2]);
+				double price = Double.parseDouble(inputLine[3]);
+				Drone newDrone = new Drone(name, speed, range, price);
+				drone.add(newDrone);
+			}
+		} catch (IOException e) {
+			System.err.println(e);
+		}
+		return drone;
 	}
 
 	public void greet() {
