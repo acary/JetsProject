@@ -65,7 +65,6 @@ public class JetsApplication {
 					break;
 				}
 				if (fastestJet != null) {
-					fastestJet = airCommand.get(0);
 					for (int i = 1; i < airCommand.size(); i++) {
 						if (airCommand.get(i).getSpeedMph() > fastestJet.getSpeedMph()) {
 							fastestJet = airCommand.get(i);
@@ -86,7 +85,6 @@ public class JetsApplication {
 					break;
 				}
 				if (airCommand != null) {
-					farthestJet = airCommand.get(0);
 					for (int i = 1; i < airCommand.size(); i++) {
 						if (airCommand.get(i).getRange() > farthestJet.getRange()) {
 							farthestJet = airCommand.get(i);
@@ -154,6 +152,7 @@ public class JetsApplication {
 				System.out.println();
 				Jet newJet = new JetImpl(name, speed, range, price);
 				airCommand.add(newJet);
+				System.out.println("Added!");
 				for (Jet jet : airCommand) {
 					System.out.println("* " + jet);
 				}
